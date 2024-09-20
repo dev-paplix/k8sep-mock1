@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: py-service
+  namespace: qq3
+spec:
+  selector:
+    app: python
+  ports:
+    - protocol: TCP
+      port: 9797
+      targetPort: 9797
+  type: LoadBalancer
