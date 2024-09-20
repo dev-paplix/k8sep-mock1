@@ -1,0 +1,6 @@
+controlplane $ kubectl get pods -n database 
+NAME                  READY   STATUS    RESTARTS   AGE
+db-7498c96b68-4gjjf   1/1     Running   0          7m29s
+controlplane $ kubectl get pods -n database -o wide
+NAME                  READY   STATUS    RESTARTS   AGE     IP             NODE     NOMINATED NODE   READINESS GATES
+db-7498c96b68-4gjjf   1/1     Running   0          7m34s   192.168.1.13   node01   <none>           <none>

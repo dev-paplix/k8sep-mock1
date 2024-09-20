@@ -1,0 +1,66 @@
+controlplane $ kubectl create ns qq3
+namespace/qq3 created
+controlplane $ nano limit.yaml
+controlplane $ kubectl apply -f limit.yaml -n qq3
+pod/limit created
+controlplane $ kubectl describe pod -n qq3
+Name:             limit
+Namespace:        qq3
+Priority:         0
+Service Account:  default
+Node:             node01/172.30.2.2
+Start Time:       Fri, 20 Sep 2024 13:35:56 +0000
+Labels:           <none>
+Annotations:      cni.projectcalico.org/containerID: 1cfe352ed3d8805118be381ae95c7e377c5796ed8752e528252a517e68e2b60d
+                  cni.projectcalico.org/podIP: 192.168.1.4/32
+                  cni.projectcalico.org/podIPs: 192.168.1.4/32
+Status:           Running
+IP:               192.168.1.4
+IPs:
+  IP:  192.168.1.4
+Containers:
+  redis:
+    Container ID:   containerd://70cfb4d93c854820280eb5dc8b9b0583ffe7a99c9fed240d74c7ce89f3b3b22b
+    Image:          redis:latest
+    Image ID:       docker.io/library/redis@sha256:eadf354977d428e347d93046bb1a5569d701e8deb68f090215534a99dbcb23b9
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Fri, 20 Sep 2024 13:36:02 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     1
+      memory:  1Gi
+    Requests:
+      cpu:        500m
+      memory:     500Mi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-lp4qg (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-lp4qg:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  17s   default-scheduler  Successfully assigned qq3/limit to node01
+  Normal  Pulling    17s   kubelet            Pulling image "redis:latest"
+  Normal  Pulled     12s   kubelet            Successfully pulled image "redis:latest" in 5.14s (5.14s including waiting). Image size: 45905346 bytes.
+  Normal  Created    12s   kubelet            Created container redis
+  Normal  Started    12s   kubelet            Started container redis

@@ -1,0 +1,19 @@
+controlplane $ kubectl get ns
+NAME                 STATUS   AGE
+ca1                  Active   7m49s
+default              Active   11d
+kube-node-lease      Active   11d
+kube-public          Active   11d
+kube-system          Active   11d
+local-path-storage   Active   11d
+prod                 Active   8m50s
+qq3                  Active   14m
+controlplane $ nano app-deployment.yaml
+controlplane $ kubectl apply -f app-deployment.yaml  -n prod
+deployment.apps/app01 created
+controlplane $ nano app-service.yaml
+controlplane $ kubectl apply -f app-service.yaml -n prod
+service/app01-svc created
+controlplane $ kubectl get service -n prod -o wide
+NAME        TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE   SELECTOR
+app01-svc   NodePort   10.110.149.80   <none>        80:30007/TCP   28s   app=app01

@@ -1,0 +1,16 @@
+controlplane $ kubectl apply -f nginx-svc.yaml -n qq3
+service/nginx-svc created
+controlplane $ kubectl get pods -n qq3
+NAME    READY   STATUS    RESTARTS   AGE
+limit   1/1     Running   0          52m
+nginx   1/1     Running   0          84s
+controlplane $ kubectl get pods -n qq3 -o wide
+NAME    READY   STATUS    RESTARTS   AGE   IP             NODE     NOMINATED NODE   READINESS GATES
+limit   1/1     Running   0          53m   192.168.1.4    node01   <none>           <none>
+nginx   1/1     Running   0          93s   192.168.1.14   node01   <none>           <none>
+controlplane $ kubectl get service -n qq3
+NAME        TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+nginx-svc   ClusterIP   10.96.6.3    <none>        80/TCP    36s
+controlplane $ kubectl get service -n qq3 -o wide
+NAME        TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE   SELECTOR
+nginx-svc   ClusterIP   10.96.6.3    <none>        80/TCP    42s   app=nginx

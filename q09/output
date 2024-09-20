@@ -1,0 +1,5 @@
+controlplane $ kubectl apply -f class-svc.yaml -n ca2
+service/class-svc created
+controlplane $ kubectl get service -n ca2
+NAME            TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE
+class-svc       LoadBalancer   10.106.244.45    <pending>     80:30283/TCP,443:32138/TCP   13s
