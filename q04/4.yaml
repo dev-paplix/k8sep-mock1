@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-deployment
+  namespace: programming
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-app
+  template:
+    metadata:
+      labels:
+        app: python-app
+    spec:
+      containers:
+      - name: python-container
+        image: python:3.9.20-slim-bullseye
+        ports:
+        - containerPort: 9797
+        env:
+        - name: PYTHONUNBUFFERED
+          value: "1"
