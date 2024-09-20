@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: class
+  labels:
+    app: httpd-q9
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: httpd-q9
+  template:
+    metadata:
+      labels:
+        app: httpd-q9
+    spec:
+      containers:
+      - name: httpd-q9
+        image: httpd:alpine3.20
+        ports:
+        - containerPort: 80
