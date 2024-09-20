@@ -31,5 +31,5 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-      nodePort: 30007  # You can either set this manually or leave it to be assigned automatically
+      nodePort: 30007  
   type: NodePort
