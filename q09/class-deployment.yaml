@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lab-deployment
-  namespace: qq2
+  name: class
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: lab-app
+      app: class
   template:
     metadata:
       labels:
-        app: lab-app
+        app: class
     spec:
       containers:
-      - name: lab-container
-        image: nginx
+      - name: httpd
+        image: httpd:alpine3.20
         ports:
         - containerPort: 80
+        - containerPort: 443

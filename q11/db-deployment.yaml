@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db
+  namespace: database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:oraclelinux9
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: your_root_password   # Change this to a strong password
+        - name: MYSQL_DATABASE
+          value: your_database_name    # Change to the desired database name
+        - name: MYSQL_USER
+          value: your_user             # Change to the desired username
+        - name: MYSQL_PASSWORD
+          value: your_user_password     # Change to the user's password
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - name: mysql-storage
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-storage
+        persistentVolumeClaim:
+          claimName: mysql-pvc   # Make sure you create this PVC or use a volume

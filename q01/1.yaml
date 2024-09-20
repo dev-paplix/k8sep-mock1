@@ -1,0 +1,7 @@
+controlplane $ kubectl create namespace qq2
+namespace/qq2 created
+controlplane $ kubectl create deployment nginx --image=nginx --replicas=3 -n qq2
+deployment.apps/nginx created
+controlplane $ kubectl get deployments -n qq2
+NAME    READY   UP-TO-DATE   AVAILABLE   AGE
+nginx   3/3     3            3           23s
