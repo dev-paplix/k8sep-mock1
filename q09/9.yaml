@@ -1,0 +1,41 @@
+# controlplane $ cat q9
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: class
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: class
+  template:
+    metadata:
+      labels:
+        app: class
+    spec:
+      containers:
+      - name: httpd
+        image: httpd:alpine3.20
+        ports:
+        - containerPort: 80
+        - containerPort: 443
+# controlplane $ cat q9-service
+apiVersion: v1
+kind: Service
+metadata:
+  name: class-svc
+spec:
+  selector:
+    app: class
+  ports:
+  - name: port-80
+    protocol: TCP
+    port: 80
+    targetPort: 80
+  - name: port-443
+    protocol: TCP
+    port: 443
+    targetPort: 443
+  type: LoadBalancer
+# controlplane $
+
