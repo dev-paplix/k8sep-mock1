@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: class
-  namespace: default  # Change this if you're working in a specific namespace
+  namespace: default  
 spec:
   replicas: 2
   selector:
