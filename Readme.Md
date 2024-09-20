@@ -3,7 +3,6 @@ Name:
 Q1:
 Create a deployment named nginx in the qq2 namespace using the nginx image with 3 replicas.
 
-
 Q2:
 Create a new deployment name lab-deployment in the qq2 namespace. With one replica in the manifest then scale the deployment to 4 replicas.
 
@@ -23,11 +22,8 @@ Create a pod named limit using the redis image in the qq3 namespace with the fol
 
 RequestsCPU: 0.5Memory: 500MiLimitsCPU: 1Memory: 1Gi
 
-
 Q6:
-Create a Deployment named web in the ca1 namespace with an image of nginx:latest. Create a new Service named web-svc that sits in front of this deployment.  All changes should be performed in the ca1 namespace. 
-
-
+Create a Deployment named web in the ca1 namespace with an image of nginx:latest. Create a new Service named web-svc that sits in front of this deployment. All changes should be performed in the ca1 namespace.
 
 Q7:
 
@@ -44,8 +40,6 @@ image configured with the following settings:
 
 use the proper service type and service to expose it for ports 443 and 80
 
-
-
 Q10:
 Create a deployment names busybox with an image of busybox:uclibc in the namespace busybox
 
@@ -54,7 +48,6 @@ Show the output and logs for the adminstrator to see
 Q11:
 
 Create a deployment names db in the database namespace which uses mysql:oraclelinux9. All teh enviromental variable must be set and the deployment myst be fully operational
-
 
 Q12:
 Deploy a pod named nginx using the nginx image in the qq3 namespace with Create a service related to this pod which is going to expose the pod with port 80 just within the Kubernetes
@@ -70,23 +63,15 @@ Create a deployment names nginx-deployment in the qq3 namespace. Perform a rolli
 Q15:
 Create a new deployment name apache-deployment with an image of caleed httpd:latest
 
- in the qq3 namespace. Perform rolling update to the image httpd:bookworm and then a rollback of the deployment to restore the original image.
-
+in the qq3 namespace. Perform rolling update to the image httpd:bookworm and then a rollback of the deployment to restore the original image.
 
 Q16:
-Deploy  postgres by using Deployment with the following image:
+Deploy postgres by using Deployment with the following image:
 
 https://hub.docker.com/_/postgres
-
-
-
-
 
 Q17:
 
 Then use elastio/pgadmin to create a database and change for the previous question
 
 https://hub.docker.com/r/elestio/pgadmin
-
-
-
