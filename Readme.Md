@@ -25,7 +25,7 @@ RequestsCPU: 0.5Memory: 500MiLimitsCPU: 1Memory: 1Gi
 
 
 Q6:
-Create a Deployment named web in the ca1 namespace with an image of nginx:latest. Create a new Service named web-svc that sits in front of this deployment.  All changes should be performed in the ca1 namespace. 
+Create a Deployment named web in the ca1 namespace with an image of nginx:latest. Create a new Service named web-svc that sits in front of this deployment. All changes should be performed in the ca1 namespace. 
 
 
 
