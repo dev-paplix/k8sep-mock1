@@ -1,0 +1,4 @@
+setiap kali nak push buat cc : jj 
+git add .
+git commit -m "filename"
+git push 
