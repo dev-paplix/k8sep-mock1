@@ -1,0 +1,99 @@
+Initialising Kubernetes... done
+
+controlplane $ kubectl create namespace qq2
+namespace/qq2 created
+controlplane $ -n qq2
+-n: command not found
+controlplane $ kubectl get pods -n qq2
+No resources found in qq2 namespace.
+controlplane $ nano nginx.yaml
+controlplane $ nano lab-deployment.yaml
+controlplane $ kubectl apply -f lab-deployment.yaml
+deployment.apps/lab-deployment created
+controlplane $ kubectl scale deployment lab-deployment --replicas=4 -n qq2
+deployment.apps/lab-deployment scaled
+controlplane $ kubect get deployments -n qq2
+kubect: command not found
+controlplane $ kubectl get deployments -n qq2
+NAME             READY   UP-TO-DATE   AVAILABLE   AGE
+lab-deployment   4/4     4            4           68s
+controlplane $ kubectl create namespace qq3
+namespace/qq3 created
+controlplane $ nano nginx-deployment.yaml
+controlplane $ kubectl get deployments -n qq3
+No resources found in qq3 namespace.
+controlplane $ nano nginx-deployment.yaml
+controlplane $ -n qq3
+-n: command not found
+controlplane $ kubectl get deployments -n qq3
+No resources found in qq3 namespace.
+controlplane $ kubectl apply -f nginx-deployment.yaml
+deployment.apps/nginx-deployment created
+controlplane $ kubectl get deployments -n qq3
+No resources found in qq3 namespace.
+controlplane $ kubectl get deployments -n qq3
+No resources found in qq3 namespace.
+controlplane $ nano nginx-deployment.yaml
+controlplane $ kubectl apply -f nginx-deployment.yaml
+deployment.apps/nginx-deployment unchanged
+controlplane $ kubectl get deployments -n qq3
+No resources found in qq3 namespace.
+controlplane $ kubectl get deployments -n qq3
+No resources found in qq3 namespace.
+controlplane $ kubectl create namespace programming
+namespace/programming created
+controlplane $ nano python.yaml
+controlplane $ kubectl apply -f python.yaml
+error: error parsing python.yaml: error converting YAML to JSON: yaml: line 7: could not find expected ':'
+controlplane $ nano python.yaml
+controlplane $ kubectl apply -f python.yaml
+error: error parsing python.yaml: error converting YAML to JSON: yaml: line 7: could not find expected ':'
+controlplane $ nano python.yaml
+controlplane $ kubectl apply -f python.yaml
+error: error parsing python.yaml: error converting YAML to JSON: yaml: line 7: could not find expected ':'
+controlplane $ nano python.yaml
+controlplane $ kubcetl apply -f python.yaml
+
+Command 'kubcetl' not found, did you mean:
+
+  command 'kubectl' from snap kubectl (1.31.1)
+
+See 'snap info <snapname>' for additional versions.
+
+controlplane $ kubectl apply -f python.yaml
+deployment.apps/python created
+controlplane $ kubectl get deployments -n programming
+NAME     READY   UP-TO-DATE   AVAILABLE   AGE
+python   0/1     1            0           48s
+controlplane $ nano limitpod.yaml
+controlplane $ kubectl apply -f limitpod.yaml
+error: error parsing limitpod.yaml: error converting YAML to JSON: yaml: line 10: could not find expected ':'
+controlplane $ nano limitpod.yaml            
+controlplane $ nano limitpod.yaml
+controlplane $ kubectl apply -f limitpod.yaml 
+pod/limit created
+controlplane $ kubectl get deployments -n qq3
+No resources found in qq3 namespace.
+controlplane $ kubectl apply -n limitpod.yaml -n qq3
+error: must specify one of -f and -k
+controlplane $ kubectl apply -f limitpod.yaml -n qq3
+pod/limit unchanged
+controlplane $ kubectl get deployments -n qq3
+No resources found in qq3 namespace.
+controlplane $ kubectl apply -f limitpod.yaml -n qq3
+pod/limit unchanged
+controlplane $ kubectl get pod -n qq3
+NAME    READY   STATUS    RESTARTS   AGE
+limit   1/1     Running   0          3m59s
+controlplane $ create namespace ca1
+
+Command 'create' not found, did you mean:
+
+  command 'pcreate' from deb pbuilder-scripts (22)
+
+Try: apt install <deb name>
+
+controlplane $ kubectl create namespace ca1
+namespace/ca1 created
+controlplane $ nano nginx:latest.yaml
+controlplane $ 

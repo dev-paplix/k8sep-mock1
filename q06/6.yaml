@@ -1,0 +1,24 @@
+controlplane $ kubectl create namespace ca1
+namespace/ca1 created
+controlplane $ nano nginxlatest.yaml
+controlplane $ kubectl apply -f nginxlatest.yaml -n ca1
+deployment.apps/web created
+controlplane $ kubectl get deployment nginxlatest.yaml
+Error from server (NotFound): deployments.apps "nginxlatest.yaml" not found
+controlplane $  kubectl get deployment nginxlatest     
+Error from server (NotFound): deployments.apps "nginxlatest" not found
+controlplane $ kubectl get deployment -n nginxlatest     
+No resources found in nginxlatest namespace.
+controlplane $ kubectl get deployment -n nginxlatest
+No resources found in nginxlatest namespace.
+controlplane $ nano nginxlatest.yaml
+controlplane $  kubectl get deployment nginxlatest.yaml
+Error from server (NotFound): deployments.apps "nginxlatest.yaml" not found
+controlplane $ kubectl apply -f nginxlatest.yaml -n ca1
+deployment.apps/web unchanged
+controlplane $ kubectl get deployment -n ngiinxlatest
+No resources found in ngiinxlatest namespace.
+controlplane $ kubectl get deployments -n ca1
+NAME   READY   UP-TO-DATE   AVAILABLE   AGE
+web    1/1     1            1           4m22s
+controlplane $ 
