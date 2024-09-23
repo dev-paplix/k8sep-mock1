@@ -1,4 +1,4 @@
-Name:
+Name: Muhamad Aizad Amer bin Ahmad Taufik
 
 Q1:
 Create a deployment named nginx in the qq2 namespace using the nginx image with 3 replicas.
