@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: class
+  labels:
+    app: class
+  namespace: ca2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: class
+  template:
+    metadata:
+      labels:
+        app: class
+    spec:
+      containers:
+        - name: class
+          image: httpd:alpine3.20
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: class-svc
+  namespace: ca2
+  labels:
+    app: class-svc
+spec:
+  type: LoadBalancer
+  ports:
+    - name: web
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    - name: tcp
+      port: 443
+      protocol: TCP
+      targetPort: 443
+  selector:
+    class: class
